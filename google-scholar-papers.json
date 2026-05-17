@@ -573,6 +573,21 @@
       "venue": "Colorado State University, 2022"
     },
     {
+      "rank": 95,
+      "title": "Classifying an area as hazardous or non-hazardous based on an operation of a semiconductor device",
+      "authors": [
+        "P Prakash",
+        "SB Lakshman",
+        "F Sunny",
+        "S Tiku",
+        "P Kale"
+      ],
+      "year": 2026,
+      "citations": 0,
+      "type": "patent",
+      "venue": "US Patent 12,613,763, 2026"
+    },
+    {
       "rank": 45,
       "title": "In-situ memory compression",
       "authors": [
@@ -1215,7 +1230,7 @@
     }
   ],
   "summary": {
-    "totalPublications": 94,
+    "totalPublications": 95,
     "grantedPatents": 14,
     "totalCitations": 720,
     "averageCitationsPerPaper": 8,
@@ -1225,7 +1240,7 @@
       "conference": 8,
       "journal": 8,
       "dissertation": 1,
-      "patent": 62
+      "patent": 63
     },
     "citationsByType": {
       "book": 14,
@@ -1252,7 +1267,7 @@
       "2023": 21,
       "2024": 37,
       "2025": 15,
-      "2026": 5
+      "2026": 6
     },
     "dataSource": "Google Scholar",
     "lastUpdated": "2026-05-17"
@@ -1260,7 +1275,7 @@
   "dataSources": {
     "citations": {
       "source": "Google Scholar",
-      "description": "Citation counts and publication data sourced from Google Scholar profile. Includes all 94 entries currently listed under the Google Scholar Articles tab and is used for h-index, i10-index, and publication metrics."
+      "description": "Citation counts and publication data sourced from Google Scholar profile, with granted patent records cross-checked against Justia for the patent list."
     },
     "patents": {
       "source": "Justia",

@@ -68,6 +68,19 @@
     return (b.citations || 0) - (a.citations || 0);
   }
 
+  function patentNumber(item) {
+    var match = String(item.venue || '').match(/US Patent\s+([\d,]+)/i);
+    return match ? parseInt(match[1].replace(/,/g, ''), 10) : 0;
+  }
+
+  function patentSort(a, b) {
+    var numberDifference = patentNumber(b) - patentNumber(a);
+    if (numberDifference) {
+      return numberDifference;
+    }
+    return yearSort(a, b);
+  }
+
   function populateSection(sectionId, entries, prefix, options) {
     var section = document.getElementById(sectionId);
     if (!section) {
@@ -112,7 +125,7 @@
 
   var grantedPatents = publications.filter(function (p) {
     return /^US Patent(?! App\.)/i.test(p.venue || '');
-  }).sort(yearSort);
+  }).sort(patentSort);
 
   populateSection('book', books, 'B', {
     numbering: 'ascending',
