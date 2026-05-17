@@ -710,7 +710,7 @@ p {
   flex-direction: column;
   gap: 0;
   max-height: calc(420px - 44px);
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .citation-country-list li {
