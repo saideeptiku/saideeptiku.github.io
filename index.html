@@ -125,34 +125,34 @@
 
     <section class="stat-strip">
       <div class="stat-item">
-        <strong data-citation-stat="hIndex">10</strong>
+        <strong data-scholar-stat="hIndex">15</strong>
         <span>h-index</span>
-        <small>excl. self-citations</small>
+        <small>Google Scholar</small>
       </div>
       <div class="stat-item">
-        <strong data-citation-stat="i10Index">10</strong>
+        <strong data-scholar-stat="i10Index">18</strong>
         <span>i10-index</span>
-        <small>excl. self-citations</small>
+        <small>Google Scholar</small>
       </div>
       <div class="stat-item">
-        <strong data-citation-stat="uniqueCitingWorks">212</strong>
-        <span>Citing works</span>
-        <small>excl. self-citations</small>
+        <strong data-scholar-stat="totalCitations">720</strong>
+        <span>Total citations</span>
+        <small>Google Scholar</small>
       </div>
       <div class="stat-item">
         <strong data-citation-stat="mappedCountries">53</strong>
         <span>Countries reached</span>
-        <small>citing institution affiliations</small>
+        <small>OpenAlex</small>
       </div>
       <div class="stat-item">
-        <strong>14</strong>
+        <strong data-scholar-stat="patents">14</strong>
         <span>Granted patents</span>
         <small>U.S. patents</small>
       </div>
       <div class="stat-item">
-        <strong>30</strong>
+        <strong data-scholar-stat="publications">20</strong>
         <span>Publications</span>
-        <small>chapters, journals, conferences</small>
+        <small>journals, conferences, chapters</small>
       </div>
     </section>
 
@@ -205,17 +205,33 @@
   <script src="assets/citation-map-data.js"></script>
   <script>
     (function () {
+      // Load OpenAlex data for countries reached
       var data = window.citationMapData;
-      if (!data) return;
-      function setStat(name, value) {
-        var el = document.querySelector("[data-citation-stat='" + name + "']");
-        if (el && value != null) el.textContent = new Intl.NumberFormat("en-US").format(value);
+      if (data) {
+        function setStat(name, value) {
+          var el = document.querySelector("[data-citation-stat='" + name + "']");
+          if (el && value != null) el.textContent = new Intl.NumberFormat("en-US").format(value);
+        }
+        setStat("mappedCountries", data.summary.mappedCountries);
       }
-      setStat("hIndex", data.summary.hIndex);
-      setStat("i10Index", data.summary.i10Index);
-      setStat("uniqueCitingWorks", data.summary.uniqueCitingWorks);
-      setStat("mappedCountries", data.summary.mappedCountries);
     })();
+    
+    // Load Google Scholar stats
+    fetch('google-scholar-papers.json')
+      .then(response => response.json())
+      .then(data => {
+        function setScholarStat(name, value) {
+          var el = document.querySelector("[data-scholar-stat='" + name + "']");
+          if (el && value != null) el.textContent = new Intl.NumberFormat("en-US").format(value);
+        }
+        var types = data.summary.publicationsByType;
+        setScholarStat("hIndex", data.summary.hIndex);
+        setScholarStat("i10Index", data.summary.i10Index);
+        setScholarStat("totalCitations", data.summary.totalCitations);
+        setScholarStat("patents", data.summary.grantedPatents != null ? data.summary.grantedPatents : types.patent);
+        setScholarStat("publications", data.summary.totalPublications);
+      })
+      .catch(error => console.error('Error loading Google Scholar stats:', error));
   </script>
 </body>
 </html>

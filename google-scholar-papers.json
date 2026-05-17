@@ -1,0 +1,250 @@
+{
+  "author": {
+    "name": "Saideep Tiku",
+    "scholarId": "VC3MG4QAAAAJ",
+    "affiliation": "Principal Systems Architect, Micron",
+    "email": "alumni.colostate.edu",
+    "totalCitations": 720,
+    "researchAreas": [
+      "Indoor Localization",
+      "Deep Learning",
+      "Embedded Systems",
+      "Security",
+      "Memory and Storage Systems"
+    ]
+  },
+  "publications": [
+    {
+      "rank": 1,
+      "title": "Adapting convolutional neural networks for indoor localization with smart mobile devices",
+      "authors": ["A Mittal", "S Tiku", "S Pasricha"],
+      "year": 2018,
+      "citations": 119,
+      "type": "conference",
+      "venue": "Proceedings of the 2018 Great Lakes Symposium on VLSI"
+    },
+    {
+      "rank": 2,
+      "title": "Indoor localization with smartphones: Harnessing the sensor suite in your pocket",
+      "authors": ["C Langlois", "S Tiku", "S Pasricha"],
+      "year": 2017,
+      "citations": 96,
+      "type": "journal",
+      "venue": "IEEE Consumer Electronics Magazine"
+    },
+    {
+      "rank": 3,
+      "title": "CHISEL: Compression-aware high-accuracy embedded indoor localization with deep learning",
+      "authors": ["L Wang", "S Tiku", "S Pasricha"],
+      "year": 2021,
+      "citations": 59,
+      "type": "journal",
+      "venue": "IEEE Embedded Systems Letters"
+    },
+    {
+      "rank": 4,
+      "title": "Overcoming security vulnerabilities in deep learning-based indoor localization frameworks on mobile devices",
+      "authors": ["S Tiku", "S Pasricha"],
+      "year": 2019,
+      "citations": 44,
+      "type": "journal",
+      "venue": "ACM Transactions on Embedded Computing Systems (TECS)"
+    },
+    {
+      "rank": 5,
+      "title": "Multi-head attention neural network for smartphone invariant indoor localization",
+      "authors": ["S Tiku", "D Gufran", "S Pasricha"],
+      "year": 2022,
+      "citations": 43,
+      "type": "conference",
+      "venue": "2022 IEEE 12th International Conference on Indoor Positioning and Indoor Navigation"
+    },
+    {
+      "rank": 6,
+      "title": "QuickLoc: adaptive deep-learning for fast indoor localization with mobile devices",
+      "authors": ["S Tiku", "P Kale", "S Pasricha"],
+      "year": 2021,
+      "citations": 42,
+      "type": "journal",
+      "venue": "ACM Transactions on Cyber-Physical Systems (TCPS)"
+    },
+    {
+      "rank": 7,
+      "title": "A Hidden Markov Model based smartphone heterogeneity resilient portable indoor localization framework",
+      "authors": ["S Tiku", "S Pasricha", "B Notaros", "Q Han"],
+      "year": 2020,
+      "citations": 38,
+      "type": "journal",
+      "venue": "Journal of Systems Architecture"
+    },
+    {
+      "rank": 8,
+      "title": "Siamese neural encoders for long-term indoor localization with mobile devices",
+      "authors": ["S Tiku", "S Pasricha"],
+      "year": 2022,
+      "citations": 31,
+      "type": "conference",
+      "venue": "2022 Design, Automation & Test in Europe Conference & Exhibition (DATE)"
+    },
+    {
+      "rank": 9,
+      "title": "VITAL: Vision transformer neural networks for accurate smartphone heterogeneity resilient indoor localization",
+      "authors": ["D Gufran", "S Tiku", "S Pasricha"],
+      "year": 2023,
+      "citations": 29,
+      "type": "conference",
+      "venue": "2023 60th ACM/IEEE Design Automation Conference (DAC)"
+    },
+    {
+      "rank": 10,
+      "title": "SHERPA: a lightweight smartphone heterogeneity resilient portable indoor localization framework",
+      "authors": ["S Tiku", "S Pasricha", "B Notaros", "Q Han"],
+      "year": 2019,
+      "citations": 27,
+      "type": "conference",
+      "venue": "2019 IEEE International Conference on Embedded Software and Systems (ICESS)"
+    },
+    {
+      "rank": 11,
+      "title": "SANGRIA: Stacked autoencoder neural networks with gradient boosting for indoor localization",
+      "authors": ["D Gufran", "S Tiku", "S Pasricha"],
+      "year": 2023,
+      "citations": 25,
+      "type": "journal",
+      "venue": "IEEE Embedded Systems Letters"
+    },
+    {
+      "rank": 12,
+      "title": "STELLAR: Siamese multiheaded attention neural networks for overcoming temporal variations and device heterogeneity with indoor localization",
+      "authors": ["D Gufran", "S Tiku", "S Pasricha"],
+      "year": 2023,
+      "citations": 23,
+      "type": "journal",
+      "venue": "IEEE Journal of Indoor and Seamless Positioning and Navigation"
+    },
+    {
+      "rank": 13,
+      "title": "PortLoc: a portable data-driven indoor localization framework for smartphones",
+      "authors": ["S Tiku", "S Pasricha"],
+      "year": 2019,
+      "citations": 22,
+      "type": "journal",
+      "venue": "IEEE Design & Test"
+    },
+    {
+      "rank": 14,
+      "title": "Security-enhanced deep learning fingerprint-based indoor localization",
+      "authors": ["S Pasricha", "S Tiku"],
+      "year": 2023,
+      "citations": 16,
+      "type": "patent",
+      "venue": "US Patent 11,751,057"
+    },
+    {
+      "rank": 15,
+      "title": "Data analytics enables energy-efficiency and robustness: from mobile to manycores, datacenters, and networks (special session paper)",
+      "authors": ["S Pasricha", "JR Doppa", "K Chakrabarty", "S Tiku", "D Dauwe", "S Jin", "PP Pande"],
+      "year": 2017,
+      "citations": 15,
+      "type": "conference",
+      "venue": "Proceedings of the Twelfth IEEE/ACM/IFIP International Conference on Hardware/Software Codesign and System Synthesis"
+    },
+    {
+      "rank": 16,
+      "title": "Machine Learning for Indoor Localization and Navigation",
+      "authors": ["S Tiku", "S Pasricha"],
+      "year": 2023,
+      "citations": 14,
+      "type": "book",
+      "venue": "Springer Nature"
+    },
+    {
+      "rank": 17,
+      "title": "Energy-efficient and robust middleware prototyping for smart mobile computing",
+      "authors": ["S Tiku", "S Pasricha"],
+      "year": 2017,
+      "citations": 14,
+      "type": "conference",
+      "venue": "Proceedings of the 28th International Symposium on Rapid System Prototyping"
+    },
+    {
+      "rank": 18,
+      "title": "An overview of indoor localization techniques",
+      "authors": ["S Tiku", "S Pasricha"],
+      "year": 2023,
+      "citations": 11,
+      "type": "book_chapter",
+      "venue": "Machine Learning for Indoor Localization and Navigation"
+    },
+    {
+      "rank": 19,
+      "title": "Smartphone invariant indoor localization using multi-head attention neural network",
+      "authors": ["S Tiku", "D Gufran", "S Pasricha"],
+      "year": 2023,
+      "citations": 7,
+      "type": "book_chapter",
+      "venue": "Machine Learning for Indoor Localization and Navigation"
+    },
+    {
+      "rank": 20,
+      "title": "Heterogeneous device resilient indoor localization using vision transformer neural networks",
+      "authors": ["D Gufran", "S Tiku", "S Pasricha"],
+      "year": 2023,
+      "citations": 7,
+      "type": "book_chapter",
+      "venue": "Machine Learning for Indoor Localization and Navigation"
+    }
+  ],
+  "summary": {
+    "totalPublications": 20,
+    "grantedPatents": 14,
+    "totalCitations": 720,
+    "averageCitationsPerPaper": 36,
+    "publicationsByType": {
+      "journal": 9,
+      "conference": 7,
+      "book_chapter": 3,
+      "book": 1,
+      "patent": 1
+    },
+    "citationsByType": {
+      "journal": 318,
+      "conference": 297,
+      "book_chapter": 25,
+      "book": 14,
+      "patent": 16
+    },
+    "hIndex": 15,
+    "i10Index": 18,
+    "mostCitedPaper": {
+      "title": "Adapting convolutional neural networks for indoor localization with smart mobile devices",
+      "type": "conference",
+      "citations": 119
+    },
+    "publicationsByYear": {
+      "2017": 3,
+      "2018": 1,
+      "2019": 4,
+      "2020": 1,
+      "2021": 2,
+      "2022": 3,
+      "2023": 6
+    },
+    "dataSource": "Google Scholar",
+    "lastUpdated": "2026-05-17"
+  },
+  "dataSources": {
+    "citations": {
+      "source": "Google Scholar",
+      "description": "Citation counts and publication data sourced from Google Scholar profile. Used for calculating h-index, i10-index, and publication metrics."
+    },
+    "patents": {
+      "source": "Justia",
+      "description": "Granted patent count sourced from the public inventor record on Justia."
+    },
+    "geography": {
+      "source": "OpenAlex",
+      "description": "Geographic distribution and institutional data from OpenAlex metadata. Used exclusively for the citation geography map and countries reached visualization."
+    }
+  }
+}

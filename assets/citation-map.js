@@ -21,12 +21,8 @@
     }
   }
 
-  setStat("uniqueCitingWorks", data.summary.uniqueCitingWorks);
   setStat("mappedInstitutions", data.summary.mappedInstitutions);
   setStat("mappedCountries", data.summary.mappedCountries);
-  setStat("hIndex", data.summary.hIndex);
-  setStat("i10Index", data.summary.i10Index);
-  setStat("selfCitingWorksExcluded", data.summary.selfCitingWorksExcluded);
 
   var generated = document.querySelector("[data-citation-generated]");
   if (generated) {

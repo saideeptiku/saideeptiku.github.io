@@ -68,37 +68,8 @@
       </nav>
     </header>
 
-    <section class="stat-strip">
-      <div class="stat-item">
-        <strong>1</strong>
-        <span>Research Book</span>
-        <small>edited volume</small>
-      </div>
-      <div class="stat-item">
-        <strong>14</strong>
-        <span>Book Chapters</span>
-        <small>peer-reviewed</small>
-      </div>
-      <div class="stat-item">
-        <strong>8</strong>
-        <span>Journal Papers</span>
-        <small>peer-reviewed</small>
-      </div>
-      <div class="stat-item">
-        <strong>8</strong>
-        <span>Conference Papers</span>
-        <small>peer-reviewed</small>
-      </div>
-      <div class="stat-item">
-        <strong>1</strong>
-        <span>Ph.D. Dissertation</span>
-        <small>Colorado State University</small>
-      </div>
-      <div class="stat-item">
-        <strong>14</strong>
-        <span>Granted Patents</span>
-        <small>selected U.S. patents</small>
-      </div>
+    <section id="publication-type-stats" class="stat-strip">
+      <!-- Populated dynamically from google-scholar-papers.json -->
     </section>
 
     <section id="impact" class="activity-section citation-impact">
@@ -111,19 +82,19 @@
       </div>
       <section class="stat-strip">
         <div class="stat-item">
-          <strong data-citation-stat="hIndex">10</strong>
+          <strong data-impact-stat="hIndex">15</strong>
           <span>h-index</span>
-          <small>excl. self-citations</small>
+          <small>Google Scholar</small>
         </div>
         <div class="stat-item">
-          <strong data-citation-stat="i10Index">10</strong>
+          <strong data-impact-stat="i10Index">18</strong>
           <span>i10-index</span>
-          <small>excl. self-citations</small>
+          <small>Google Scholar</small>
         </div>
         <div class="stat-item">
-          <strong data-citation-stat="uniqueCitingWorks">212</strong>
+          <strong data-impact-stat="totalCitations">720</strong>
           <span>Citing works</span>
-          <small>excl. self-citations</small>
+          <small>Google Scholar</small>
         </div>
         <div class="stat-item">
           <strong data-citation-stat="mappedCountries">53</strong>
@@ -400,6 +371,12 @@
       </div>
     </section>
 
+    <section class="data-sources-note">
+      <h2>Data Sources</h2>
+      <p><strong>Publication Metrics:</strong> Publication counts, citation statistics, h-index, and i10-index are sourced from <a href="https://scholar.google.com/citations?user=VC3MG4QAAAAJ" target="_blank" rel="noopener">Google Scholar</a>. Citation counts include all citations, including self-citations. This covers journals, conferences, book chapters, and patents.</p>
+      <p><strong>Geographic Citation Data:</strong> The interactive citation map and "Top Countries" visualization use institutional affiliation data from <a href="https://openalex.org/" target="_blank" rel="noopener">OpenAlex</a>. This shows the geographic distribution of citing works across institutions worldwide.</p>
+    </section>
+
     <footer class="site-footer">
       &copy; 2026 Saideep Tiku.
     </footer>
@@ -407,7 +384,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="assets/citation-map-data.js"></script>
   <script src="assets/citation-map.js"></script>
-  <script src="assets/publication-citations.js"></script>
   <script src="assets/display-citations.js"></script>
+  <script src="assets/load-stats.js"></script>
 </body>
 </html>
