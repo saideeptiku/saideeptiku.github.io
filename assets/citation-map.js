@@ -3,8 +3,12 @@
   var mapElement = document.getElementById("citation-map");
 
   if (!data || !mapElement) {
+    console.error("Map element not found. Ensure #citation-map exists in the DOM.");
     return;
   }
+
+  mapElement.textContent = ""; // Clear any placeholder text
+  mapElement.style.height = '420px'; // Keep map height aligned with the Top Countries panel
 
   function formatNumber(value) {
     return new Intl.NumberFormat("en-US").format(value || 0);
@@ -20,6 +24,9 @@
   setStat("uniqueCitingWorks", data.summary.uniqueCitingWorks);
   setStat("mappedInstitutions", data.summary.mappedInstitutions);
   setStat("mappedCountries", data.summary.mappedCountries);
+  setStat("hIndex", data.summary.hIndex);
+  setStat("i10Index", data.summary.i10Index);
+  setStat("selfCitingWorksExcluded", data.summary.selfCitingWorksExcluded);
 
   var generated = document.querySelector("[data-citation-generated]");
   if (generated) {
@@ -43,8 +50,6 @@
     return;
   }
 
-  mapElement.textContent = "";
-
   var map = L.map(mapElement, {
     attributionControl: true,
     scrollWheelZoom: false,
@@ -52,11 +57,28 @@
     zoomControl: true
   }).setView([24, 8], 2);
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+  function tileUrl(theme) {
+    return theme === "dark"
+      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+      : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+  }
+
+  var tileOptions = {
     attribution: "&copy; OpenStreetMap contributors &copy; CARTO",
     maxZoom: 18,
     subdomains: "abcd"
-  }).addTo(map);
+  };
+
+  var currentTile = L.tileLayer(
+    tileUrl(document.documentElement.getAttribute("data-theme")),
+    tileOptions
+  ).addTo(map);
+
+  new MutationObserver(function () {
+    var theme = document.documentElement.getAttribute("data-theme");
+    currentTile.remove();
+    currentTile = L.tileLayer(tileUrl(theme), tileOptions).addTo(map);
+  }).observe(document.documentElement, { attributeFilter: ["data-theme"] });
 
   var maxCount = Math.max.apply(
     null,
