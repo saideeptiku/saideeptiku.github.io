@@ -3367,7 +3367,6 @@ window.citationMapData = {
       "region": null
     }
   ],
-  "publicationCitations": {},
   "source": "OpenAlex",
   "summary": {
     "authorWorksInOpenAlex": 36,

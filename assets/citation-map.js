@@ -21,7 +21,6 @@
     }
   }
 
-  setStat("mappedInstitutions", data.summary.mappedInstitutions);
   setStat("mappedCountries", data.summary.mappedCountries);
 
   var generated = document.querySelector("[data-citation-generated]");
