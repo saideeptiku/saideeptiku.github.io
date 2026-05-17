@@ -7,7 +7,7 @@ window.citationMapData = {
   "generated": "2026-05-17",
   "points": [
     {
-      "citingWorks": 43,
+      "citingWorks": 15,
       "city": "Fort Collins",
       "country": "United States",
       "countryCode": "US",
@@ -708,16 +708,6 @@ window.citationMapData = {
     },
     {
       "citingWorks": 2,
-      "city": "Durham",
-      "country": "United States",
-      "countryCode": "US",
-      "lat": 35.99403,
-      "lon": -78.89862,
-      "name": "Duke University",
-      "region": "North Carolina"
-    },
-    {
-      "citingWorks": 2,
       "city": "Thessaloniki",
       "country": "Greece",
       "countryCode": "GR",
@@ -785,16 +775,6 @@ window.citationMapData = {
       "lon": 101.08290100097656,
       "name": "Universiti Teknologi Petronas",
       "region": null
-    },
-    {
-      "citingWorks": 1,
-      "city": "Boise",
-      "country": "United States",
-      "countryCode": "US",
-      "lat": 43.6135,
-      "lon": -116.20345,
-      "name": "Micron (United States)",
-      "region": "Idaho"
     },
     {
       "citingWorks": 1,
@@ -2258,16 +2238,6 @@ window.citationMapData = {
     },
     {
       "citingWorks": 1,
-      "city": "Golden",
-      "country": "United States",
-      "countryCode": "US",
-      "lat": 39.75554,
-      "lon": -105.2211,
-      "name": "Colorado School of Mines",
-      "region": "Colorado"
-    },
-    {
-      "citingWorks": 1,
       "city": "Taoyuan District",
       "country": "Taiwan",
       "countryCode": "TW",
@@ -2725,6 +2695,16 @@ window.citationMapData = {
       "lon": -76.61219,
       "name": "Johns Hopkins University",
       "region": "Maryland"
+    },
+    {
+      "citingWorks": 1,
+      "city": "Durham",
+      "country": "United States",
+      "countryCode": "US",
+      "lat": 35.99403,
+      "lon": -78.89862,
+      "name": "Duke University",
+      "region": "North Carolina"
     },
     {
       "citingWorks": 1,
@@ -3208,16 +3188,6 @@ window.citationMapData = {
     },
     {
       "citingWorks": 1,
-      "city": "Pullman",
-      "country": "United States",
-      "countryCode": "US",
-      "lat": 46.73127,
-      "lon": -117.17962,
-      "name": "Washington State University",
-      "region": "Washington"
-    },
-    {
-      "citingWorks": 1,
       "city": "Stockholm",
       "country": "Sweden",
       "countryCode": "SE",
@@ -3401,11 +3371,14 @@ window.citationMapData = {
   "summary": {
     "authorWorksInOpenAlex": 36,
     "citedAuthorWorksInOpenAlex": 28,
-    "citingWorksWithMappedInstitutions": 233,
-    "institutionMentions": 494,
+    "citingWorksWithMappedInstitutions": 205,
+    "hIndex": 10,
+    "i10Index": 10,
+    "institutionMentions": 462,
     "mappedCountries": 53,
-    "mappedInstitutions": 339,
-    "uniqueCitingWorks": 241
+    "mappedInstitutions": 336,
+    "selfCitingWorksExcluded": 29,
+    "uniqueCitingWorks": 212
   },
   "topCountries": [
     {
@@ -3414,7 +3387,7 @@ window.citationMapData = {
       "name": "China"
     },
     {
-      "affiliationMentions": 97,
+      "affiliationMentions": 65,
       "code": "US",
       "name": "United States"
     },

@@ -13,6 +13,7 @@ from pathlib import Path
 
 
 AUTHOR_ID = "A5085084417"
+AUTHOR_FULL_ID = f"https://openalex.org/{AUTHOR_ID}"
 CONTACT_EMAIL = "saitiku@gmail.com"
 BASE = "https://api.openalex.org"
 ROOT = Path(__file__).resolve().parents[1]
@@ -65,6 +66,7 @@ def main() -> None:
 
     cited_works = [work for work in author_works if work.get("cited_by_count", 0) > 0]
     citing_records: dict[str, dict] = {}
+    self_citing_ids: set[str] = set()
 
     for index, work in enumerate(cited_works, start=1):
         cited_work_id = compact_id(work["id"])
@@ -78,7 +80,18 @@ def main() -> None:
             },
         )
 
+        self_citations = 0
         for citing_work in citing_works:
+            # Skip self-citations: works where this author is also an author.
+            author_ids_in_citing = {
+                authorship.get("author", {}).get("id")
+                for authorship in citing_work.get("authorships", [])
+            }
+            if AUTHOR_FULL_ID in author_ids_in_citing:
+                self_citing_ids.add(citing_work["id"])
+                self_citations += 1
+                continue
+
             citing_id = citing_work["id"]
             record = citing_records.setdefault(
                 citing_id,
@@ -104,8 +117,21 @@ def main() -> None:
                     if institution_id:
                         record["institution_ids"].add(institution_id)
 
-        print(f"{index:02d}/{len(cited_works)} {cited_work_id}: {len(citing_works)} citing works")
+        print(
+            f"{index:02d}/{len(cited_works)} {cited_work_id}: "
+            f"{len(citing_works)} citing works ({self_citations} self-citations excluded)"
+        )
         time.sleep(0.2)
+
+    # Compute h-index and i10-index from non-self-citation counts per author work.
+    work_nsc_counts: Counter[str] = Counter()
+    for record in citing_records.values():
+        for cited_ref in record["cites"]:
+            work_nsc_counts[cited_ref["id"]] += 1
+
+    nsc_sorted = sorted(work_nsc_counts.values(), reverse=True)
+    h_index = sum(1 for i, c in enumerate(nsc_sorted, 1) if c >= i)
+    i10_index = sum(1 for c in work_nsc_counts.values() if c >= 10)
 
     institution_ids = sorted(
         {
@@ -194,6 +220,9 @@ def main() -> None:
             "orcid": author_payload.get("orcid"),
         },
         "summary": {
+            "hIndex": h_index,
+            "i10Index": i10_index,
+            "selfCitingWorksExcluded": len(self_citing_ids),
             "authorWorksInOpenAlex": len(author_works),
             "citedAuthorWorksInOpenAlex": len(cited_works),
             "uniqueCitingWorks": len(citing_records),

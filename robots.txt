@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saideeptiku.github.io/sitemap.xml
