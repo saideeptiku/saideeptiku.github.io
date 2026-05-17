@@ -25,6 +25,8 @@ function classify(entry) {
   
   if (/us patent/i.test(venue) || /patent/i.test(venue)) return 'patent';
   if (venue.includes('springer nature')) return 'book';
+  if (venue.includes('colorado state university') ||
+      title.includes('secure, accurate, real-time, and heterogeneity-resilient indoor localization with smartphones')) return 'dissertation';
   if (venue.includes('machine learning for indoor localization and navigation') || 
       venue.includes('embedded machine learning for cyber-physical')) return 'book_chapter';
   if (venue.includes('conference') || venue.includes('symposium') || venue.includes('proceedings')) return 'conference';

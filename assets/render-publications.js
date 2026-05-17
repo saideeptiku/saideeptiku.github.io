@@ -15,6 +15,13 @@
       .trim();
   }
 
+  function isDissertation(item) {
+    var normalized = normalizeTitle(item && item.title);
+    return (item && item.type === 'dissertation') ||
+      normalized === 'secure accurate real time and heterogeneity resilient indoor localization with smartphones' ||
+      normalized === 'secure accurate realtime and heterogeneity resilient indoor localization with smartphones';
+  }
+
   function formatAuthors(authors) {
     if (!Array.isArray(authors) || !authors.length) {
       return '';
@@ -92,7 +99,7 @@
   }).sort(yearSort);
 
   var journals = publications.filter(function (p) {
-    return p.type === 'journal';
+    return p.type === 'journal' && !isDissertation(p);
   }).sort(yearSort);
 
   var conferences = publications.filter(function (p) {
@@ -100,9 +107,7 @@
   }).sort(yearSort);
 
   var dissertation = publications.filter(function (p) {
-    var normalized = normalizeTitle(p.title);
-    return normalized === 'secure accurate real time and heterogeneity resilient indoor localization with smartphones' ||
-      normalized === 'secure accurate realtime and heterogeneity resilient indoor localization with smartphones';
+    return isDissertation(p);
   });
 
   var grantedPatents = publications.filter(function (p) {

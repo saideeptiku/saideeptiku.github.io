@@ -569,7 +569,7 @@
       ],
       "year": 2022,
       "citations": 1,
-      "type": "journal",
+      "type": "dissertation",
       "venue": "Colorado State University, 2022"
     },
     {
@@ -1223,14 +1223,16 @@
       "book": 1,
       "book_chapter": 14,
       "conference": 8,
-      "journal": 9,
+      "journal": 8,
+      "dissertation": 1,
       "patent": 62
     },
     "citationsByType": {
       "book": 14,
       "book_chapter": 41,
       "conference": 279,
-      "journal": 350,
+      "journal": 349,
+      "dissertation": 1,
       "patent": 36
     },
     "hIndex": 15,
