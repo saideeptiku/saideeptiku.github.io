@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 INTERNAL_DIR = ROOT / ".internal"
 PUBLIC_DATA_PATH = ROOT / "assets" / "citation-map-data.js"
 INTERNAL_RECORD_PATH = INTERNAL_DIR / "citation-affiliations.json"
+PUBLICATION_CITATIONS_PATH = ROOT / "assets" / "publication-citations.js"
 
 
 def fetch_json(path: str, params: dict[str, str | int] | None = None) -> dict:
@@ -133,6 +134,16 @@ def main() -> None:
     h_index = sum(1 for i, c in enumerate(nsc_sorted, 1) if c >= i)
     i10_index = sum(1 for c in work_nsc_counts.values() if c >= 10)
 
+    # Build publication citations data keyed by DOI for easy lookup
+    publication_citations: dict[str, int] = {}
+    for work in author_works:
+        work_id = work["id"]
+        citation_count = work_nsc_counts.get(work_id, 0)
+        doi = work.get("doi")
+        if doi:
+            publication_citations[doi] = citation_count
+            publication_citations[doi.lower()] = citation_count
+
     institution_ids = sorted(
         {
             institution_id
@@ -244,6 +255,10 @@ def main() -> None:
             for code, count in country_counts.most_common(8)
         ],
         "points": points,
+        "publicationCitations": {
+            doi: count for doi, count in publication_citations.items()
+            if not doi.startswith(("http://", "https://"))  # Exclude URL-based keys, keep canonical DOIs
+        },
     }
 
     internal_payload = {
@@ -262,9 +277,28 @@ def main() -> None:
         encoding="utf-8",
     )
 
+    # Generate publication citations data for frontend use
+    publication_data = [
+        {
+            "title": work.get("title"),
+            "year": work.get("publication_year"),
+            "doi": work.get("doi"),
+            "citations": work_nsc_counts.get(work["id"], 0),
+        }
+        for work in author_works
+    ]
+
+    PUBLICATION_CITATIONS_PATH.write_text(
+        "window.publicationCitations = "
+        + json.dumps(publication_data, indent=2, sort_keys=True)
+        + ";\n",
+        encoding="utf-8",
+    )
+
     print(json.dumps(public_data["summary"], indent=2))
     print(f"Wrote {PUBLIC_DATA_PATH.relative_to(ROOT)}")
     print(f"Wrote {INTERNAL_RECORD_PATH.relative_to(ROOT)}")
+    print(f"Wrote {PUBLICATION_CITATIONS_PATH.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

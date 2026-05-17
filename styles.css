@@ -751,6 +751,21 @@ p {
   margin-bottom: 5px;
 }
 
+.citation-count-container {
+  margin-bottom: 8px;
+}
+
+.citation-count-badge {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 12px;
+  font-weight: 650;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
 .citation {
   color: var(--muted);
   font-size: 14px;
