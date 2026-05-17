@@ -425,6 +425,10 @@ p {
   margin-bottom: 0;
 }
 
+.dissertation-order {
+  margin-top: 14px;
+}
+
 .home-grid {
   align-items: stretch;
   display: grid;

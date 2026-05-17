@@ -150,7 +150,7 @@
         <small>U.S. patents</small>
       </div>
       <div class="stat-item">
-        <strong data-scholar-stat="publications">20</strong>
+        <strong data-scholar-stat="publications">31</strong>
         <span>Publications</span>
         <small>journals, conferences, chapters</small>
       </div>
@@ -183,7 +183,7 @@
         <div class="book-order">
           <img src="assets/machine-learning-indoor-localization-cover.jpg" alt="Machine Learning for Indoor Localization and Navigation book cover" width="827" height="1285" />
           <div class="book-copy">
-            <h2 id="book-title">My Research Book</h2>
+            <h2 id="book-title">My Book</h2>
             <p>Introducing <em>Machine Learning for Indoor Localization and Navigation</em>, edited with Sudeep Pasricha and published by Springer Nature.</p>
             <p class="book-links">
               <a href="https://link.springer.com/book/10.1007/978-3-031-26712-3" target="_blank" rel="noopener">Springer</a>
@@ -193,6 +193,19 @@
               <a href="https://openlibrary.org/books/OL53269765M/Machine_Learning_for_Indoor_Localization_and_Navigation" target="_blank" rel="noopener">Open Library</a>
             </p>
             <p class="book-reference">Saideep Tiku and Sudeep Pasricha, editors. Springer Nature, 2023. DOI: 10.1007/978-3-031-26712-3.</p>
+          </div>
+        </div>
+        <div class="book-order dissertation-order">
+          <img src="assets/saideep-tiku-thesis-cover.png" alt="Cover page of Saideep Tiku's dissertation" width="612" height="792" />
+          <div class="book-copy">
+            <h2 id="dissertation-title">My Dissertation</h2>
+            <p>My Ph.D. dissertation, <em>Secure, Accurate, Real-Time, and Heterogeneity-Resilient Indoor Localization with Smartphones</em>, was completed at Colorado State University.</p>
+            <p class="book-links">
+              <a href="https://api.mountainscholar.org/server/api/core/bitstreams/3c1cec02-b831-4863-b446-02c8de1fcce2/content" target="_blank" rel="noopener">Dissertation PDF</a>
+              <span>·</span>
+              <a href="https://api.mountainscholar.org/server/api/core/bitstreams/3c1cec02-b831-4863-b446-02c8de1fcce2/content" target="_blank" rel="noopener">Cover page</a>
+            </p>
+            <p class="book-reference">Colorado State University, Department of Electrical and Computer Engineering, 2022.</p>
           </div>
         </div>
       </div>
@@ -233,7 +246,7 @@
         setScholarStat("i10Index", data.summary.i10Index);
         setScholarStat("totalCitations", data.summary.totalCitations);
         setScholarStat("patents", data.summary.grantedPatents != null ? data.summary.grantedPatents : types.patent);
-        setScholarStat("publications", data.summary.totalPublications);
+        setScholarStat("publications", (types.journal || 0) + (types.conference || 0) + (types.book_chapter || 0));
       })
       .catch(error => console.error('Error loading Google Scholar stats:', error));
   </script>
