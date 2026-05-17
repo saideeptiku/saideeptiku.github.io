@@ -898,7 +898,33 @@ tr:last-child td {
   }
 
   .portrait-frame {
-    max-width: 320px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 18px;
+    max-width: 520px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .portrait-frame img {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+  }
+
+  .portrait-caption {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0;
+  }
+
+  .profile-links {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
   }
 
   .aside {
@@ -928,6 +954,34 @@ tr:last-child td {
     grid-template-columns: 1fr;
   }
 
+  .portrait-frame {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .portrait-frame img {
+    grid-column: auto;
+    grid-row: auto;
+    margin: 0 auto;
+  }
+
+  .portrait-caption {
+    grid-column: auto;
+    grid-row: auto;
+    margin-top: 18px;
+  }
+
+  .profile-links {
+    grid-column: auto;
+    grid-row: auto;
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+  }
+
   .book-order {
     align-items: center;
     flex-direction: column;
@@ -946,6 +1000,47 @@ tr:last-child td {
     padding-left: 10px;
     padding-right: 10px;
   }
+}
+
+.site-footer {
+  padding: 28px 0;
+  margin-top: 40px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.data-sources-note {
+  margin: 40px 0;
+  padding: 24px;
+  background-color: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+}
+
+.data-sources-note h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  color: var(--accent-strong);
+}
+
+.data-sources-note p {
+  margin: 12px 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.data-sources-note a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+
+.data-sources-note a:hover {
+  color: var(--accent-strong);
+  border-bottom-color: var(--accent-strong);
 }
 
 @media print {
