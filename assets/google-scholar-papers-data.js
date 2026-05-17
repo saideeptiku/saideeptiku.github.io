@@ -1,4 +1,4 @@
-{
+window.googleScholarPapersData = {
   "author": {
     "name": "Saideep Tiku",
     "scholarId": "VC3MG4QAAAAJ",
@@ -1269,4 +1269,4 @@
       "description": "Geographic distribution and institutional data from OpenAlex metadata. Used exclusively for the citation geography map and countries reached visualization."
     }
   }
-}
+};

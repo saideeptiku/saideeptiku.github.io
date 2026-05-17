@@ -69,7 +69,36 @@
     </header>
 
     <section id="publication-type-stats" class="stat-strip">
-      <!-- Populated dynamically from google-scholar-papers.json -->
+      <div class="stat-item">
+        <strong data-publication-stat="journal">--</strong>
+        <span>Journal Papers</span>
+        <small>peer-reviewed</small>
+      </div>
+      <div class="stat-item">
+        <strong data-publication-stat="conference">--</strong>
+        <span>Conference Papers</span>
+        <small>peer-reviewed</small>
+      </div>
+      <div class="stat-item">
+        <strong data-publication-stat="book_chapter">--</strong>
+        <span>Book Chapters</span>
+        <small>peer-reviewed</small>
+      </div>
+      <div class="stat-item">
+        <strong data-publication-stat="book">--</strong>
+        <span>Research Books</span>
+        <small>edited volume</small>
+      </div>
+      <div class="stat-item">
+        <strong data-publication-stat="patents">--</strong>
+        <span>Patents</span>
+        <small>U.S. patents (Justia)</small>
+      </div>
+      <div class="stat-item">
+        <strong data-publication-stat="totalCitations">--</strong>
+        <span>Total Citations</span>
+        <small>Google Scholar</small>
+      </div>
     </section>
 
     <section id="impact" class="activity-section citation-impact">
@@ -383,6 +412,7 @@
   </main>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="assets/citation-map-data.js"></script>
+  <script src="assets/google-scholar-papers-data.js"></script>
   <script src="assets/citation-map.js"></script>
   <script src="assets/display-citations.js"></script>
   <script src="assets/load-stats.js"></script>

@@ -1,6 +1,34 @@
 // Load and display publication statistics from Google Scholar data
-fetch('google-scholar-papers.json')
-  .then(response => response.json())
+function fetchScholarData() {
+  if (window.googleScholarPapersData) {
+    return Promise.resolve(window.googleScholarPapersData);
+  }
+
+  const candidates = [
+    'google-scholar-papers.json',
+    './google-scholar-papers.json',
+    '/google-scholar-papers.json'
+  ];
+
+  function tryNext(index) {
+    if (index >= candidates.length) {
+      throw new Error('Unable to load google-scholar-papers.json from known paths');
+    }
+
+    return fetch(candidates[index], { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('HTTP ' + response.status + ' for ' + candidates[index]);
+        }
+        return response.json();
+      })
+      .catch(() => tryNext(index + 1));
+  }
+
+  return tryNext(0);
+}
+
+fetchScholarData()
   .then(data => {
     const summary = data.summary;
     const types = summary.publicationsByType;
@@ -9,57 +37,19 @@ fetch('google-scholar-papers.json')
       return new Intl.NumberFormat('en-US').format(value || 0);
     }
 
-    // Get publication-type stat container
-    const statStrip = document.querySelector('#publication-type-stats') || document.querySelector('.stat-strip');
-    if (!statStrip) return;
-    
-    // Clear existing content
-    statStrip.innerHTML = '';
-    
-    // Create stat items dynamically
-    const stats = [
-      {
-        count: types.journal,
-        label: 'Journal Papers',
-        detail: 'peer-reviewed'
-      },
-      {
-        count: types.conference,
-        label: 'Conference Papers',
-        detail: 'peer-reviewed'
-      },
-      {
-        count: types.book_chapter,
-        label: 'Book Chapters',
-        detail: 'peer-reviewed'
-      },
-      {
-        count: types.book,
-        label: 'Research Books',
-        detail: 'edited volume'
-      },
-      {
-        count: summary.grantedPatents != null ? summary.grantedPatents : types.patent,
-        label: 'Patents',
-        detail: 'U.S. patents (Justia)'
-      },
-      {
-        count: summary.totalCitations,
-        label: 'Total Citations',
-        detail: 'Google Scholar'
+    function setPublicationStat(name, value) {
+      const el = document.querySelector("[data-publication-stat='" + name + "']");
+      if (el && value != null) {
+        el.textContent = formatNumber(value);
       }
-    ];
-    
-    stats.forEach(stat => {
-      const item = document.createElement('div');
-      item.className = 'stat-item';
-      item.innerHTML = `
-        <strong>${formatNumber(stat.count)}</strong>
-        <span>${stat.label}</span>
-        <small>${stat.detail}</small>
-      `;
-      statStrip.appendChild(item);
-    });
+    }
+
+    setPublicationStat('journal', types.journal);
+    setPublicationStat('conference', types.conference);
+    setPublicationStat('book_chapter', types.book_chapter);
+    setPublicationStat('book', types.book);
+    setPublicationStat('patents', summary.grantedPatents != null ? summary.grantedPatents : types.patent);
+    setPublicationStat('totalCitations', summary.totalCitations);
 
     // Populate citation impact metrics that should mirror Google Scholar.
     function setImpactStat(name, value) {
@@ -73,4 +63,6 @@ fetch('google-scholar-papers.json')
     setImpactStat('i10Index', summary.i10Index);
     setImpactStat('totalCitations', summary.totalCitations);
   })
-  .catch(error => console.error('Error loading publication statistics:', error));
+  .catch(error => {
+    console.error('Error loading publication statistics:', error);
+  });

@@ -203,6 +203,7 @@
     </footer>
   </main>
   <script src="assets/citation-map-data.js"></script>
+  <script src="assets/google-scholar-papers-data.js"></script>
   <script>
     (function () {
       // Load OpenAlex data for countries reached
@@ -217,8 +218,11 @@
     })();
     
     // Load Google Scholar stats
-    fetch('google-scholar-papers.json')
-      .then(response => response.json())
+    var scholarPromise = window.googleScholarPapersData
+      ? Promise.resolve(window.googleScholarPapersData)
+      : fetch('google-scholar-papers.json').then(response => response.json());
+
+    scholarPromise
       .then(data => {
         function setScholarStat(name, value) {
           var el = document.querySelector("[data-scholar-stat='" + name + "']");

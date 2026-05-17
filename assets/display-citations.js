@@ -43,8 +43,11 @@
   }
 
   function displayPublicationCitations() {
-    fetch('google-scholar-papers.json')
-      .then(function (response) { return response.json(); })
+    var dataPromise = window.googleScholarPapersData
+      ? Promise.resolve(window.googleScholarPapersData)
+      : fetch('google-scholar-papers.json').then(function (response) { return response.json(); });
+
+    dataPromise
       .then(function (data) {
         var publications = (data && data.publications) || [];
         if (!publications.length) return;
