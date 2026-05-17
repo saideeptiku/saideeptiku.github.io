@@ -744,15 +744,22 @@ p {
   background: var(--paper);
   border-left: 3px solid var(--accent-soft);
   padding: 0 0 0 16px;
+  position: relative;
+  padding-top: 8px;
 }
 
 .activity-item h3 {
   font-size: 17px;
   margin-bottom: 5px;
+  padding-right: 100px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .citation-count-container {
-  margin-bottom: 8px;
+  position: absolute;
+  top: 8px;
+  right: 12px;
 }
 
 .citation-count-badge {
@@ -763,7 +770,7 @@ p {
   font-weight: 650;
   padding: 4px 8px;
   border-radius: 4px;
-  margin-right: 8px;
+  white-space: nowrap;
 }
 
 .citation {
